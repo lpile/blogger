@@ -17,5 +17,18 @@ RSpec.describe "Article's Show Spec,", type: :feature do
       expect(page).to_not have_content(@article_2.title)
       expect(page).to_not have_content(@article_2.body)
     end
+
+    it "there's a link to go back to index page" do
+
+      visit article_path(@article_1)
+
+      expect(page).to have_link("Back to Articles List", href: articles_path)
+
+      click_link "Back to Articles List"
+
+      expect(current_path).to eq(articles_path)
+      expect(page).to have_content(@article_1.title)
+      expect(page).to have_content(@article_2.title)
+    end
   end
 end
