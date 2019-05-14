@@ -8,19 +8,19 @@ RSpec.describe "Article's New Spec,", type: :feature do
   end
 
   describe "user creates a new article" do
-      it "they fill in attributes" do
+    it "they fill in attributes" do
 
-        visit new_article_path
+      visit new_article_path
 
-        fill_in "Title", with: "New Title!"
-        fill_in "Body",  with: "New Body!"
-        click_on "Create Article"
+      fill_in "Title", with: "New Title!"
+      fill_in "Body",  with: "New Body!"
+      click_on "Create Article"
 
-        new_article = Article.last
+      new_article = Article.last
 
-        expect(page).to have_content("New Title!")
-        expect(page).to have_content("New Body!")
-        expect(current_path).to eq(article_path(new_article))
-      end
+      expect(current_path).to eq(article_path(new_article))
+      expect(page).to have_content("New Title!")
+      expect(page).to have_content("New Body!")
     end
+  end
 end
