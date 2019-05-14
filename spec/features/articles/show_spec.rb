@@ -30,6 +30,17 @@ RSpec.describe "Article's Show Spec,", type: :feature do
       expect(page).to have_content(@article_1.title)
       expect(page).to have_content(@article_2.title)
     end
+
+    it "there's a link to edit the article" do
+
+      visit article_path(@article_1)
+
+      expect(page).to have_link("Edit", href: edit_article_path(@article_1))
+
+      click_link "Edit"
+
+      expect(current_path).to eq(edit_article_path(@article_1))
+    end
   end
 
   describe "there's a link to delete an article" do
