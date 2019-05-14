@@ -21,6 +21,10 @@ RSpec.describe "Article's Index Spec,", type: :feature do
       visit articles_path
 
       expect(page).to have_link("Create a New Article", href: new_article_path)
+
+      click_link "Create a New Article"
+
+      expect(current_path).to eq(new_article_path)
     end
   end
 end
