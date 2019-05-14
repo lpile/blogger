@@ -16,9 +16,11 @@ RSpec.describe "Article's New Spec,", type: :feature do
         fill_in "Body",  with: "New Body!"
         click_on "Create Article"
 
+        new_article = Article.last
+
         expect(page).to have_content("New Title!")
         expect(page).to have_content("New Body!")
-        expect(current_path).to eq(articles_path)
+        expect(current_path).to eq(article_path(new_article))
       end
     end
 end
