@@ -14,7 +14,7 @@ RSpec.describe "Article's New Spec,", type: :feature do
 
       fill_in "Title", with: "New Title!"
       fill_in "Body",  with: "New Body!"
-      click_on "Create Article"
+      click_on "Submit"
 
       new_article = Article.last
 
