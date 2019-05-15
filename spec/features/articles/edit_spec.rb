@@ -14,13 +14,14 @@ RSpec.describe "Article's Edit Spec,", type: :feature do
 
       fill_in "Title", with: "Edit Title!"
       fill_in "Body",  with: "Edit Body!"
-      click_on "Edit Article"
+      click_on "Submit"
 
       expect(current_path).to eq(article_path(@article_1))
       expect(page).to have_content("Edit Title!")
       expect(page).to have_content("Edit Body!")
       expect(page).to_not have_content("Title 1")
       expect(page).to_not have_content("Body 1")
+      expect(page).to have_content("Article Edit Title! Updated!")
     end
   end
 end
