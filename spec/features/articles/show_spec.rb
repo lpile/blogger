@@ -7,7 +7,7 @@ RSpec.describe "Article's Show Spec,", type: :feature do
     @article_2 = Article.create!(title: "Title 2", body: "Body 2")
     @comment_1 = @article_1.comments.create!(author_name: "Me", body: "Commenty comments")
     @comment_2 = @article_1.comments.create!(author_name: "You", body: "So much to say")
-    @comment_3 = @article_2.comments.create!(author_name: "Us", body: "USA")
+    @comment_3 = @article_2.comments.create!(author_name: "We", body: "We tee lee")
   end
 
   describe "user sees one article at /articles/:id," do
@@ -21,7 +21,8 @@ RSpec.describe "Article's Show Spec,", type: :feature do
       expect(page).to_not have_content(@article_2.body)
     end
 
-    it "there's comments on article's show page" do
+    it "it displays comments for one article" do
+      
       visit article_path(@article_1)
 
       expect(page).to have_content(@article_1.title)
@@ -68,6 +69,23 @@ RSpec.describe "Article's Show Spec,", type: :feature do
       expect(current_path).to eq(articles_path)
       expect(page).to have_content(@article_2.title)
       expect(page).to_not have_content(@article_1.title)
+    end
+  end
+
+  describe "there's a way to fill in a comment form" do
+    it "it will display on the article show" do
+      article = Article.create!(title: "New Title", body: "New Body")
+      
+      visit article_path(article)
+
+      fill_in "comment[author_name]", with: "ME!"
+      fill_in "comment[body]", with: "So many thoughts on this article."
+      click_on "Submit"
+
+      expect(current_path).to eq(article_path(article))
+      expect(page).to have_content("Post a Comment")
+      expect(page).to have_content("ME!")
+      expect(page).to have_content("So many thoughts on this article.")
     end
   end
 end
