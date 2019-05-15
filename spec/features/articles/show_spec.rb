@@ -22,7 +22,7 @@ RSpec.describe "Article's Show Spec,", type: :feature do
     end
 
     it "it displays comments for one article" do
-
+      
       visit article_path(@article_1)
 
       expect(page).to have_content(@article_1.title)
