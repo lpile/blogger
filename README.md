@@ -11,7 +11,9 @@ RESTful design
 Adding gems for extra features
 
 Guide Link below
+
 https://backend.turing.io/module2/misc/blogger
 
 User stories can be found in the link below
+
 https://github.com/turingschool/backend-curriculum-site/tree/gh-pages/module2/misc
