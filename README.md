@@ -1,24 +1,17 @@
-# README
+Blogger (A Guided Tutorial for Rails)
+=====================================
+In this project you’ll create a simple blog system and learn the basics of Ruby on Rails including:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Models, Views, and Controllers (MVC)
+Data Structures & Relationships
+Routing
+Migrations
+Views with forms, partials, and helpers
+RESTful design
+Adding gems for extra features
 
-Things you may want to cover:
+Guide Link below
+https://backend.turing.io/module2/misc/blogger
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+User stories can be found in the link below
+https://github.com/turingschool/backend-curriculum-site/tree/gh-pages/module2/misc
